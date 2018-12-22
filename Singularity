@@ -3,7 +3,7 @@ From: centos:7
 
 %post
     yum -y update
-    yum -y install epel-release wget git gcc-c++ zlib-devel make which glibc-devel glibc-static
+    yum -y install epel-release wget git gcc-c++ zlib-devel make which
     yum -y install python36 python36-devel
     wget https://bootstrap.pypa.io/get-pip.py
     python36 get-pip.py
