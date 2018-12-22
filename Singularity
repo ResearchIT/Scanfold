@@ -39,15 +39,14 @@ From: centos:7
         git clone https://github.com/moss-lab/ScanFold.git /opt/scanfold
     else
         pushd /opt/scanfold
+        git checkout master
         git pull
         popd
     fi
  
-
-    pushd /opt/scanfold
-    git checkout master
-    popd
-
-    
 %environment
     export PATH=/opt/rnastructure/RNAstructure/exe:/opt/scanfold:$PATH
+    export DATAPATH=/opt/rnastructure/RNAstructure/data_tables
+
+%runscript
+    exec python36 /opt/scanfold/ScanFold-Fold_spinoff.py $@
