@@ -49,4 +49,16 @@ From: centos:7
     export DATAPATH=/opt/rnastructure/RNAstructure/data_tables
 
 %runscript
+    exec python36 $@
+
+%apprun scan
+    exec python36 /opt/scanfold/ScanFold-Scan_Webserver.py $@
+
+%apprun fold
     exec python36 /opt/scanfold/ScanFold-Fold_spinoff.py $@
+
+%help
+Run this container by specifying the scan or fold step:
+e.g.
+$ singularity run shub://ResearchIT/scanfold fold -i input.tsv ...
+
