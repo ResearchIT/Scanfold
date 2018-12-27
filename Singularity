@@ -36,7 +36,7 @@ From: centos:7
     if [ ! -d /opt/scanfold ]
     then
         mkdir -p /opt/scanfold
-        git clone https://github.com/moss-lab/ScanFold.git /opt/scanfold
+        git clone https://github.com/baberlevi/ScanFold.git /opt/scanfold
     else
         pushd /opt/scanfold
         git checkout master
