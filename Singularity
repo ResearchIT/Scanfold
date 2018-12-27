@@ -5,12 +5,14 @@ From: centos:7
     yum -y update
     yum -y install epel-release wget git gcc-c++ zlib-devel make which
     yum -y install python36 python36-devel
+    yum -y install python34-pip
     wget https://bootstrap.pypa.io/get-pip.py
     python36 get-pip.py
     python36 -m pip install biopython
     python36 -m pip install numpy
     python36 -m pip install pybigwig
     python36 -m pip install requests
+    python3 -m pip install biopython numpy requests
 
     # Install ViennaRNA & Python bindings
     if [ ! -f /usr/bin/RNAfold ];
@@ -37,6 +39,9 @@ From: centos:7
     then
         mkdir -p /opt/scanfold
         git clone https://github.com/baberlevi/ScanFold.git /opt/scanfold
+        pushd /opt/scanfold
+        git checkout master
+        popd
     else
         pushd /opt/scanfold
         git checkout master
@@ -52,7 +57,7 @@ From: centos:7
     exec python36 $@
 
 %apprun scan
-    exec python36 /opt/scanfold/ScanFold-Scan_Webserver.py $@
+    exec python3 /opt/scanfold/ScanFold-Scan_Webserver.py $@
 
 %apprun fold
     exec python36 /opt/scanfold/ScanFold-Fold_spinoff.py $@
