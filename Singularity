@@ -5,7 +5,7 @@ From: centos:7
     yum -y update
     yum -y install epel-release wget git gcc-c++ zlib-devel make which
     yum -y install python36 python36-devel
-    yum -y install python34-pip
+    yum -y install python34-pip python34-devel
     wget https://bootstrap.pypa.io/get-pip.py
     python36 get-pip.py
     python36 -m pip install biopython
@@ -38,7 +38,7 @@ From: centos:7
     if [ ! -d /opt/scanfold ]
     then
         mkdir -p /opt/scanfold
-        git clone https://github.com/baberlevi/ScanFold.git /opt/scanfold
+        git clone https://github.com/moss-lab/ScanFold.git /opt/scanfold
         pushd /opt/scanfold
         git checkout master
         popd
