@@ -12,7 +12,7 @@ From: centos:7
     python36 -m pip install numpy
     python36 -m pip install pybigwig
     python36 -m pip install requests
-    python3 -m pip install biopython numpy requests
+    python3.4 -m pip install biopython numpy requests
 
     # Install ViennaRNA & Python bindings
     if [ ! -f /usr/bin/RNAfold ];
@@ -57,7 +57,7 @@ From: centos:7
     exec python36 $@
 
 %apprun scan
-    exec python3 /opt/scanfold/ScanFold-Scan_Webserver.py $@
+    exec python3.4 /opt/scanfold/ScanFold-Scan_Webserver.py $@
 
 %apprun fold
     exec python36 /opt/scanfold/ScanFold-Fold_spinoff.py $@
