@@ -53,7 +53,7 @@ From: centos:7
     exec python3 $@
 
 %apprun scan
-    exec python3 /opt/scanfold/ScanFold-Scan_Webserver.py $@
+    exec python3 /opt/scanfold/ScanFold-Scan_spinoff.py $@
 
 %apprun fold
     exec python3 /opt/scanfold/ScanFold-Fold_spinoff.py $@
